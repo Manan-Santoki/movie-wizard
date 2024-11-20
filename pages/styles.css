@@ -1,0 +1,623 @@
+@font-face {
+    src: url('../assets/fonts/Spectron.woff2') format('woff2');
+    font-family: 'Spectron';
+}
+
+@font-face {
+    src: url('../assets/fonts/texgyreadventor-regular.woff2') format('woff2');
+    font-family: 'TeX Gyre Adventor';
+    font-weight: normal;
+}
+
+@font-face {
+    src: url('../assets/fonts/texgyreadventor-bold.woff2') format('woff2');
+    font-family: 'TeX Gyre Adventor';
+    font-weight: bold;
+}
+
+@font-face {
+    src: url('../assets/fonts/texgyreadventor-italic.woff2') format('woff2');
+    font-family: 'TeX Gyre Adventor';
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    src: url('../assets/fonts/texgyreadventor-bolditalic.woff2') format('woff2');
+    font-family: 'TeX Gyre Adventor';
+    font-style: italic;
+    font-weight: bold;
+}
+
+:root {
+    --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+    --black: #0B090A;
+    --blue: #17BEBB;
+    --orange: #FF333A;
+    --orange-light: #FF8589;
+    --orange-dark: #FF0000;
+    --red: #CC0007;
+    --red-dark: #A30005;
+    --white: #FFFFFF;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'TeX Gyre Adventor', var(--system-ui), sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    display: flex;
+    place-content: center flex-start;
+    align-items: center;
+    background-color: var(--black);
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container, .sub-container, .output {
+    display: flex;
+    place-content: center flex-start;
+    align-items: center;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 10px 64px;
+    height: fit-content;
+    max-width: 975px;
+    overflow: auto;
+    overflow-wrap: normal;
+    padding: 50px;
+    position: relative;
+    width: auto;
+}
+
+.header-link {
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.2s ease-in-out;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+    color: var(--black);
+}
+
+.header-link:active {
+    color: var(--orange);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    color: var(--white);
+}
+
+.header-title {
+    display: flex;
+    gap: 12px;
+}
+
+.header-title h1 {
+    width: 100%;
+    font-family: "Spectron", var(--system-ui), sans-serif;
+    font-size: 6.5em;
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    text-align: center;
+    margin: 0;
+}
+
+.header-subtitle h2, .header-subtitle p, .header-subtitle h3, .header-subtitle ul {
+    font-size: 1.3em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+}
+
+.header-subtitle p, .header-subtitle ul {
+    font-size: 1em;
+}
+
+
+.header-subtitle ul {
+    padding: 0 30px 10px 30px;
+    text-align: left;
+}
+
+.header-subtitle h3 {
+    margin-top: 34px;
+    font-size: 1.1em;
+}
+
+.neon-text {
+    text-shadow: 0 0 10px var(--blue),
+    0 0 20px var(--blue),
+    0 0 40px var(--blue),
+    0 0 80px var(--blue),
+    0 0 100px var(--blue),
+    0 0 150px var(--blue);
+}
+
+
+.prompt-container, .contact-container {
+    place-content: flex-end center;
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 16px;
+    height: min-content;
+    padding: 0;
+    width: min-content;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.prompt-box {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    place-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: 150px;
+    padding: 20px;
+    position: relative;
+    width: 610px;
+    max-width: 1200px;
+    will-change: transform;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    line-height: 1.6em;
+    text-align: start;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    text-transform: none;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+textarea  {
+    font-family: "TeX Gyre Adventor", var(--system-ui), sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 0.5;
+}
+
+#message {
+    line-height: 1.2em;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.inputField {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
+label, .inputError {
+    padding: 0 0 0 16px;
+}
+
+.prompt-box:focus, #message:focus, .inputField:focus {
+    border-color:rgba(255, 255, 255, 0.75)
+}
+
+.generate-button {
+    place-content: flex-start;
+    align-items: flex-start;
+    background: linear-gradient(to right, var(--red) 0%, var(--red-dark) 70%);
+    border-radius: 100px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: min-content;
+    overflow: hidden;
+    padding: 16px 24px;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    position: relative;
+    text-decoration: none;
+    width: min-content;
+    will-change: transform;
+    cursor: pointer;
+
+}
+
+.generate {
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    transform: none;
+}
+
+.generate p {
+    color: var(--white);
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.loading {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.1);
+}
+
+.output {
+    box-sizing: border-box;
+}
+
+.output-header h2 {
+    font-size: 2em;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: none;
+    margin: 0;
+}
+
+.output-content {
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    transform: none;
+    max-width: 100%;
+}
+
+.output-content p {
+    text-align: center;
+    white-space: pre-line;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.source {
+    font-size: 0.7em;
+    margin-top: 30px;
+}
+
+ul li {
+    list-style-type: none;
+    text-align: center;
+}
+
+/* Footer */
+
+.footer {
+    color: var(--white);
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 2.5em;
+    display: inline;
+}
+
+.footer p {
+    display: inline;
+}
+
+.footer p:not(#last) {
+    margin-right: 2em;
+}
+
+.footer-link {
+    color: var(--blue);
+    display: inline;
+    transition: all .2s ease-in-out;
+}
+
+.footer-link:hover {
+    color: var(--white);
+}
+
+.footer-link:active {
+    color: var(--orange);
+}
+
+/* Contact */
+.container-contact {
+    place-content: center flex-start;
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    height: min-content;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+    width: 60vw;
+}
+
+.contact-container {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    height: min-content;
+    position: relative;
+}
+
+.form-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 1em;
+}
+
+.inputGroup {
+    height: 50%;
+    width: 200%;
+    display: flex;
+    margin: 10px 0;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    position: relative;
+    color: var(--white);
+    justify-content: center;
+}
+
+.inputLabel {
+    text-align: start;
+    outline: none;
+    text-decoration: none;
+}
+.inputField {
+    height: 30px;
+    outline: none;
+    text-decoration: none;
+}
+
+.multiline {
+    height: 90px;
+    max-height: 180px;
+    min-height: 90px;
+    resize: vertical;
+}
+
+.success-message, .error-message {
+    font-size: 0.8em;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: left;
+}
+
+.success-message span {
+    color: green;
+}
+
+.error-message span {
+    color: red;
+}
+
+
+.inputError {
+    color: var(--red);
+    font-size: 0.8em;
+    display: none;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid, textarea:not(:focus):not(:placeholder-shown):invalid {
+    border-color: var(--red);
+}
+
+input:not(:focus):not(:placeholder-shown):invalid ~ .inputError, textarea:not(:focus):not(:placeholder-shown):invalid ~ .inputError {
+    display: block;
+}
+
+input:not(:focus):not(:placeholder-shown):valid, textarea:not(:focus):not(:placeholder-shown):valid {
+    border-color: var(--white);
+}
+
+/* TODO: textarea red border onBlur (focused="true")*/
+input:invalid[focused="true"], .msg-invalid, #message:invalid[focused="true"] {
+    border-color: var(--red);
+    
+}
+
+input:invalid[focused="true"] ~ span, textarea:invalid[focused="true"] ~ span {
+    display: block;
+}
+
+.msg-invalid {
+    height: 90px;
+    max-height: 180px;
+    min-height: 90px;
+    resize: vertical;
+}
+
+@media (min-width: 810px) and (max-width: 1199px) {
+    .sub-container {
+        max-width: 650px;
+        width: 100%;
+    }
+
+    .prompt-container {
+        max-width: 650px;
+        width: 100%;
+    }
+
+    .prompt-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 809px) {
+    .sub-container, .container-contact {
+        max-width: 550px;
+        width: 100%;
+    }
+
+    .prompt-container, .form-main {
+        max-width: 550px;
+        width: 100%;
+    }
+
+    .prompt-box {
+        width: 100%;
+    }
+
+    .inputGroup {
+        width: 150%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sub-container {
+        max-width: 360px;
+        width: 100%;
+    }
+
+    .header-title h1 {
+        font-size: 15vw;
+    }
+
+    .header-subtitle h2 {
+        text-align: center;
+    }
+
+    .prompt-buttons {
+        justify-content: center;
+    }
+
+    .prompt-container {
+        max-width: 360px;
+       /* width: 100%;*/
+    }
+
+    .prompt-box {
+        max-width: 360px;
+        /*width: 100%;*/
+    }
+
+    .output {
+        padding: 0 15px;
+        max-width: 360px;
+        /*width: 100%;*/
+    }
+
+    .output-content {
+        word-wrap: break-word;
+        padding: 0 15px;
+        max-width: 360px;
+
+    }
+
+    .legal, .footer-legal-sm {
+        width: 75%;
+    }
+}
+
+
+/* Loading ring animation */
+.loader {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 2px solid var(--white);
+    border-right: 2px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading message color and animation */
+.loading-message {
+    color: var(--blue);
+    max-width: 75%;
+}
+
+.typing-animation {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing: 0.1em; /* Adjust letter spacing for the desired effect */
+  animation: typing 6s steps(40, end) infinite, blinking-caret 0.5s step-end infinite 3s;
+}
+
+/* The typing effect */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  80%, 100% {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blinking-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: inherit;
+  }
+}

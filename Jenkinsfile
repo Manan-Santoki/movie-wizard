@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'IMAGE_NAME', defaultValue: 'movie-wiz', description: 'Name of the Docker image')
         string(name: 'IMAGE_TAG', defaultValue: 'latest', description: 'Tag for the Docker image')
-        string(name: 'DOCKER_COMPOSE_FILE', defaultValue: 'docker-compose.yml', description: 'Path to the Docker Compose file')
+        string(name: 'DOCKER_COMPOSE_FILE', defaultValue: 'docker-compose.yaml', description: 'Path to the Docker Compose file')
         string(name: 'OPENAI_API_KEY', description: 'OpenAI API Key')
         string(name: 'EMAIL_USER', description: 'Email User')
         string(name: 'EMAIL_PW', description: 'Email Password')
@@ -64,7 +64,7 @@ pipeline {
             steps {
                 script {
                     // Run the docker-compose to deploy containers
-                    sh "docker-compose -f ${params.DOCKER_COMPOSE_FILE} up -d"
+                    sh "docker compose -f ${params.DOCKER_COMPOSE_FILE} up -d"
                     echo "Docker containers started successfully using ${params.DOCKER_COMPOSE_FILE}."
                 }
             }

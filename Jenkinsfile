@@ -29,9 +29,6 @@ pipeline {
                     """
                     echo "Environment variables written to ${ENV_FILE}"
 
-                    // Ensure the .env.local file is also in the root of the folder
-                    sh "cp -f ${ENV_FILE} ${WORKSPACE}/${ENV_FILE}"
-                    echo ".env.local file copied to workspace root."
                 }
             }
         }
@@ -42,6 +39,17 @@ pipeline {
             }
         }
 
+        stage('Copy Variables') {
+                    steps {
+                        script {
+                            // Install dependencies using npm
+                                                // Ensure the .env.local file is also in the root of the folder
+                    sh "cp -f ${ENV_FILE} ${WORKSPACE}/movie-wizard"
+                    echo ".env.local file copied to workspace git."
+
+                        }
+                    }
+                }
         stage('Build Docker Image') {
             steps {
                 script {

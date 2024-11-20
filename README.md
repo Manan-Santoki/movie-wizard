@@ -1,5 +1,6 @@
 # Movie-Wizard
 
+
 Movie-Wizard is an AI-powered web application that provides movie recommendations based on user input. The app utilizes OpenAI to generate movie suggestions tailored to the user's specific preferences, making it an essential tool for movie lovers.
 
 You can use Movie-Wizard without sign-up or login. Simply visit [moviewhiz.xyz](https://moviewhiz.xyz/) and start generating movie recommendations!
@@ -232,5 +233,6 @@ This project is open-source and available under the [MIT License](./LICENSE.md).
 ## Support
 If you have any questions or need help getting started, please open an issue in the repository or contact me on Twitter: @tanja_codes
 
-Happy movie hunting!#   m o v i e - w i z a r d  
+Happy movie hunting!#   m o v i e - w i z a r d 
+ 
  

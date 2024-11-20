@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    image: movie-wiz:latest
+    build:
+      context: .
+    env_file:
+      - .env.local
+    network_mode: "host"
+    restart: always
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PW: ${EMAIL_PW}
+      EMAIL_TO: ${EMAIL_TO}
+

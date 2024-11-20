@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
+# Copy the .env.local file to the working directory
+COPY .env.local .env.local
+
 # Build the Next.js application
 RUN npm run build
 
@@ -20,4 +23,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["npm", "run","start"]
+CMD ["npm", "run", "start"]
